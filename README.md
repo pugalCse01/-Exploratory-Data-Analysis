@@ -1,72 +1,64 @@
-📁 Dataset Overview
-Source: Titanic survival dataset (Kaggle)
+# 🚢 Titanic Data Analysis & Preprocessing
 
-Features:
+This project focuses on cleaning, preprocessing, and performing **exploratory data analysis (EDA)** on the famous [Titanic dataset](https://www.kaggle.com/competitions/titanic). It uses **statistical visualizations** and techniques to extract meaningful insights from passenger data.
 
-Categorical: Sex, Embarked, Pclass
+---
 
-Numerical: Age, Fare, SibSp, Parch
+## 📁 Dataset Overview
 
-Target: Survived (0 = No, 1 = Yes)
+- **Source**: Titanic survival dataset (Kaggle)
+- **Features**:
+  - **Categorical**: `Sex`, `Embarked`, `Pclass`
+  - **Numerical**: `Age`, `Fare`, `SibSp`, `Parch`
+  - **Target**: `Survived` (0 = No, 1 = Yes)
 
-🧹 Preprocessing Steps
-1. 🔍 Import & Explore the Dataset
-Loaded the dataset using pandas
+---
 
-Inspected data types, null values, and basic structure with info() and describe()
+## 🧹 Preprocessing Steps
 
-2. 🧩 Handle Missing Values
-Age: Replaced missing values using mean imputation
+### 1. 🔍 Import & Explore the Dataset
+- Loaded the dataset using `pandas`.
+- Inspected data types, null values, and basic structure with `info()` and `describe()` functions.
 
-Embarked: Used mode imputation
+---
 
-Dropped Cabin due to high missingness
+### 2. 🧩 Handle Missing Values
+- **Age**: Missing values were filled with the **mean** of the column.
+- **Embarked**: Missing entries were replaced with the **mode** (most frequent value).
+- **Cabin**: The column was dropped due to a high percentage of missing data (77%).
 
-3. 🔤 Categorical Encoding
-Converted Sex and Embarked into numerical values using Label Encoding
+---
 
-4. ⚖️ Feature Normalization
-Applied StandardScaler to normalize numerical features like Age and Fare
+### 3. 🔤 Categorical Encoding
+- **Sex** and **Embarked** were converted into numerical values using **Label Encoding**.
 
-📊 Exploratory Data Analysis (EDA)
-1. Generate Summary Statistics
-Calculated basic summary statistics for numerical features, including mean, median, and standard deviation.
+---
 
-2. Distribution Plots
-Created histograms to visualize the distribution of key numerical features: Age, Fare, SibSp, and Parch.
+### 4. ⚖️ Feature Normalization
+- **StandardScaler** was applied to normalize numerical features like `Age` and `Fare` to ensure features contribute equally to models.
 
-Generated boxplots to detect outliers and visualize the spread of numerical features.
+---
 
-3. Correlation Matrix & Heatmap
-Generated a correlation matrix to understand relationships between numerical features.
+## 📊 Exploratory Data Analysis (EDA)
 
-Visualized the correlation matrix using a heatmap to detect any strong correlations.
+### 1. **Generate Summary Statistics (Mean, Median, Std, etc.)**
+- **Summary Statistics**: Key statistics such as mean, median, standard deviation, and percentiles were generated for numerical features to understand the central tendency and spread of the data. This helps identify typical values and detect skewness or outliers.
 
-4. Pairplot of Key Features
-Created a pairplot to explore the pairwise relationships between features such as Age, Fare, Pclass, and survival (Survived).
+### 2. **Create Histograms and Boxplots for Numeric Features**
+- **Histograms**: Distributions of numerical features such as `Age`, `Fare`, `SibSp`, and `Parch` were visualized to understand their frequency and distribution.
+- **Boxplots**: Used boxplots to identify outliers and the spread of numerical data like `Age`, `Fare`, and `SibSp`.
 
-5. Group-Based Visualizations
-Used count plots to explore survival rates based on categorical features like Sex, Pclass, and Embarked.
+### 3. **Use Pairplot/Correlation Matrix for Feature Relationships**
+- **Correlation Matrix**: Plotted a heatmap to examine the correlation between numerical features and their relationships with the target variable `Survived`.
+- **Pairplot**: Visualized the relationships between key features (such as `Age`, `Fare`, `Pclass`) and survival status to identify patterns, trends, and possible interactions.
 
-Created bar plots for visualizing survival rates within different fare ranges and passenger classes.
+### 4. **Identify Patterns, Trends, or Anomalies in the Data**
+- Patterns such as higher survival rates among women, first-class passengers, and younger passengers were identified. Trends like the relationship between `Fare` and survival rate were also examined. Anomalies such as extreme outliers in the `Fare` feature were spotted.
 
-🧑‍💻 Technical Stack
-Libraries Used:
+### 5. **Make Basic Feature-Level Inferences from Visuals**
+- **Sex**: Women had a higher survival rate compared to men.
+- **Pclass**: First-class passengers had a higher survival rate than second or third-class passengers.
+- **Fare**: Higher fares were associated with higher survival rates.
+- **Age**: Younger passengers had a better chance of survival, particularly children.
 
-pandas: For data manipulation
-
-numpy: For numerical computations
-
-matplotlib: For plotting visualizations
-
-seaborn: For statistical visualizations (boxplots, pairplots, etc.)
-
-📈 Insights
-Age & Survival Rate: Younger passengers tend to have a higher survival rate, especially those under 10 years old.
-
-Fare & Survival Rate: Passengers who paid higher fares had a better chance of survival.
-
-Pclass & Survival Rate: First-class passengers had the highest survival rate, while third-class passengers had the lowest.
-
-Sex & Survival: A significantly higher proportion of females survived compared to males.
-
+---
